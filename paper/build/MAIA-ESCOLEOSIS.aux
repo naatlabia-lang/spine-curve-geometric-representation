@@ -1,0 +1,91 @@
+\relax 
+\providecommand \oddpage@label [2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {I}Introducción}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {II}Objetivos}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-A}}Objetivo general}{1}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {II-B}}Objetivos específicos}{1}{}\protected@file@percent }
+\citation{ronneberger2015unet}
+\citation{isensee2021nnunet}
+\citation{tao2022spine_transformers}
+\citation{you2023verteformer}
+\citation{zhang2023swinspine}
+\citation{li2024verformer}
+\citation{you2022eg_trans3dunet}
+\citation{you2023verteformer}
+\citation{zhang2023swinspine}
+\citation{you2022eg_trans3dunet}
+\citation{aydogdu2024centroid}
+\citation{li2024verformer}
+\citation{clough2020topological}
+\citation{hu2019topology}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Estado del Arte}{2}{}\protected@file@percent }
+\newlabel{sec:sota}{{III}{2}{}{}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Marco Teórico}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-A}}Imágenes médicas como espacios discretos}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-B}}Espacios topológicos discretos}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-C}}Curvas anatómicas y geometría diferencial}{2}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-D}}Regiones tubulares}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-E}}Familias indexadas y organización anatómica}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-F}}Topological Data Analysis}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-G}}Redes neuronales convolucionales}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-H}}Representaciones geométricas y topológicas para aprendizaje profundo}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {IV-I}}Conceptualización matemática del espacio anatómico}{3}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {V}Definición del Problema}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Metodología Propuesta}{4}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-A}}Análisis preliminar mediante Estadística, TDA y aprendizaje de variedades}{4}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces  Análisis estadístico exploratorio del conjunto de radiografías. La figura muestra las distribuciones del brillo global, las estadísticas de intensidad en la región de interés y la variabilidad del contraste a lo largo del dataset. Los histogramas evidencian una heterogeneidad significativa en las distribuciones de intensidad, mientras que el diagrama de dispersión ilustra la relación entre la intensidad media de la región de interés y el contraste local. Estas observaciones motivaron el uso de estrategias de normalización y técnicas de preprocesamiento para mejorar la consistencia estructural antes del entrenamiento de la CNN. }}{4}{}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:dataset_statistics}{{1}{4}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-B}}Construcción del espacio de canales geométricos}{4}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {I}{\ignorespaces Normalization strategy comparison.}}{5}{}\protected@file@percent }
+\newlabel{tab:norm_results}{{I}{5}{}{}{}}
+\newlabel{fig:tda_manifold_comparison}{{\mbox  {VI-B}}{5}{}{}{}}
+\newlabel{fig:tda_manifold_comparison}{{\mbox  {VI-B}}{5}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-C}}Análisis de filtros}{5}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces  Comparación de filtros espaciales y operadores discretos de gradiente aplicados a radiografías de columna. Se evaluaron distintas combinaciones de filtros Gaussianos, bilaterales, Laplacianos, Sobel, Prewitt y Scharr con el objetivo de realzar estructuras anatómicas y mejorar las representaciones de entrada para la CNN. }}{5}{}\protected@file@percent }
+\newlabel{fig:filters}{{2}{5}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces  Construcción de parches anatómicos indexados sobre la curva vertebral. A partir de la trayectoria anatómica de la columna se generan vecindades locales discretas organizadas espacialmente sobre la curva. Se evaluaron estrategias de parches fijos y adaptativos para preservar continuidad anatómica y coherencia geométrica entre regiones consecutivas. }}{6}{}\protected@file@percent }
+\newlabel{fig:spine_patches}{{3}{6}{}{}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces  Ejemplo de la representación geométrica multicanal generada a partir de parches de columna indexados anatómicamente. Cada canal codifica información estructural complementaria derivada de la curva anatómica y de la máscara vertebral binaria, incluyendo respuestas de borde, gradientes orientados, mapas de distancia y representaciones geométricas en banda. Estos canales proporcionan a la CNN contexto espacial y geométrico adicional más allá de la información de intensidad original. }}{6}{}\protected@file@percent }
+\newlabel{fig:geometric_channels}{{4}{6}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-D}}Parches anatómicos y organización estructural del dataset}{6}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-E}}Partición del dataset y validación}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-F}}CNN multicanal y utilización de targets anatómicos}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-G}}Targets anatómicos}{7}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-H}}Reconstrucción espacial de parches a partir de la salida de la CNN}{7}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces  Reconstrucción espacial de parches vertebrales indexados después del procesamiento por la CNN. Las predicciones locales de bordes e información intervertebral son reorganizadas respetando el orden anatómico sobre la curva vertebral, permitiendo reconstruir una representación global coherente de la columna vertebral y preservando continuidad anatómica y relaciones espaciales locales. }}{8}{}\protected@file@percent }
+\newlabel{fig:spatial_reconstruction}{{5}{8}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-I}}Análisis frecuencial de gaps y picos anatómicos}{8}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces  Análisis frecuencial aplicado sobre representaciones reconstruidas de la columna vertebral. La figura muestra la combinación de mapas estructurales y el análisis de picos y gaps frecuenciales asociados a regiones intervertebrales. La intersección entre la señal frecuencial y la curva anatómica permitió preservar correspondencia espacial y proporcionar mayor contexto anatómico durante la segmentación. }}{9}{}\protected@file@percent }
+\newlabel{fig:frequency_analysis}{{6}{9}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-J}}Clusterización de representaciones anatómicas}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-K}}Modelo estudiante para generación de curva y perfil geométrico}{9}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-L}}Infraestructura experimental y despliegue}{10}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces  Arquitectura general del pipeline propuesto. El modelo combina una CNN binaria, un modelo teacher--student y análisis geométrico basado en gaps y picos intervertebrales. Las representaciones generadas son reorganizadas mediante indexación anatómica para construir vectores estructurales utilizados posteriormente en procesos de clustering por zonas de interés anatómico. }}{10}{}\protected@file@percent }
+\newlabel{fig:teacher_student_pipeline}{{7}{10}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-M}}Visión General}{10}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-N}}Dataset}{11}{}\protected@file@percent }
+\newlabel{fig:eda_dataset_profile}{{\mbox  {VI-N}}{11}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-O}}Evaluación cualitativa y cuantitativa de la CNN}{11}{}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces  Ejemplo de predicción multisalida de la CNN sobre un parche anatómico de la columna. La parte superior muestra los canales de entrada utilizados por el modelo: imagen robustamente normalizada, máscara de banda, mapa de bordes y respuesta orientada. Las salidas muestran la comparación entre las máscaras objetivo y las predicciones para segmentación multiclase, máscara binaria, bordes, espacios intervertebrales y mapa ordinal. Esta visualización permite comprobar que la CNN aprende una representación estructural de la región vertebral, integrando información de intensidad, borde y geometría local. }}{11}{}\protected@file@percent }
+\newlabel{fig:cnn_multihead_prediction}{{8}{11}{}{}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\mbox  {VI-P}}Evidencia de la clusterización regional}{11}{}\protected@file@percent }
+\citation{*}
+\bibstyle{IEEEtran}
+\bibdata{referencias}
+\bibcite{hu2019topology}{1}
+\bibcite{clough2019topological}{2}
+\bibcite{hu2021morse}{3}
+\bibcite{everat1996topological}{4}
+\bibcite{lux2024topograph}{5}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-P}1}Evidencias cuantitativas}{12}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {II}{\ignorespaces Mejor configuración de clusterización regional.}}{12}{}\protected@file@percent }
+\newlabel{tab:best_clustering_model}{{II}{12}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-P}2}Clusters asociados con escoliosis}{12}{}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {III}{\ignorespaces Clusters regionales dominados completamente por escoliosis.}}{12}{}\protected@file@percent }
+\newlabel{tab:scoliosis_dominant_clusters}{{III}{12}{}{}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-P}3}Interpretación}{12}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\mbox  {VI-P}4}Conclusión}{12}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {VII}Trabajo Futuro}{12}{}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{References}{12}{}\protected@file@percent }
+\gdef \@abspage@last{12}
