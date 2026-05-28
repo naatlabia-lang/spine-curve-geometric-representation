@@ -1,0 +1,204 @@
+name: Discord PR notifications
+
+on:
+  pull_request:
+    types: [opened, reopened, ready_for_review, closed, edited, synchronize]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send PR notification to Discord
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          ACTION: ${{ github.event.action }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_AUTHOR_AVATAR: ${{ github.event.pull_request.user.avatar_url }}
+          PR_STATE: ${{ github.event.pull_request.state }}
+          PR_MERGED: ${{ github.event.pull_request.merged }}
+          PR_DRAFT: ${{ github.event.pull_request.draft }}
+          BASE_BRANCH: ${{ github.event.pull_request.base.ref }}
+          HEAD_BRANCH: ${{ github.event.pull_request.head.ref }}
+          REPO_NAME: ${{ github.repository }}
+          REPO_URL: ${{ github.event.repository.html_url }}
+          CREATED_AT: ${{ github.event.pull_request.created_at }}
+          UPDATED_AT: ${{ github.event.pull_request.updated_at }}
+          MERGED_AT: ${{ github.event.pull_request.merged_at }}
+          ADDITIONS: ${{ github.event.pull_request.additions }}
+          DELETIONS: ${{ github.event.pull_request.deletions }}
+          CHANGED_FILES: ${{ github.event.pull_request.changed_files }}
+          COMMITS: ${{ github.event.pull_request.commits }}
+        run: |
+          if [ "$ACTION" = "closed" ] && [ "$PR_MERGED" = "true" ]; then
+            STATUS="PR merged"
+            COLOR=3066993
+          elif [ "$ACTION" = "closed" ]; then
+            STATUS="PR closed"
+            COLOR=15158332
+          elif [ "$ACTION" = "ready_for_review" ]; then
+            STATUS="PR ready for review"
+            COLOR=3447003
+          elif [ "$ACTION" = "synchronize" ]; then
+            STATUS="PR updated with new commits"
+            COLOR=15844367
+          else
+            STATUS="PR opened"
+            COLOR=5814783
+          fi
+
+          LABELS=$(jq -r '[.pull_request.labels[].name] | join(", ")' "$GITHUB_EVENT_PATH")
+          REVIEWERS=$(jq -r '[.pull_request.requested_reviewers[].login] | join(", ")' "$GITHUB_EVENT_PATH")
+
+          if [ -z "$LABELS" ]; then
+            LABELS="No labels"
+          fi
+
+          if [ -z "$REVIEWERS" ]; then
+            REVIEWERS="No reviewers requested"
+          fi
+
+          if [ -z "$PR_BODY" ]; then
+            PR_BODY="No description provided."
+          fi
+
+          BODY_SHORT=$(echo "$PR_BODY" | head -c 900)
+
+          jq -n \
+            --arg status "$STATUS" \
+            --arg repo "$REPO_NAME" \
+            --arg repo_url "$REPO_URL" \
+            --arg title "$PR_TITLE" \
+            --arg pr_url "$PR_URL" \
+            --arg number "$PR_NUMBER" \
+            --arg author "$PR_AUTHOR" \
+            --arg avatar "$PR_AUTHOR_AVATAR" \
+            --arg state "$PR_STATE" \
+            --arg merged "$PR_MERGED" \
+            --arg draft "$PR_DRAFT" \
+            --arg base "$BASE_BRANCH" \
+            --arg head "$HEAD_BRANCH" \
+            --arg labels "$LABELS" \
+            --arg reviewers "$REVIEWERS" \
+            --arg created "$CREATED_AT" \
+            --arg updated "$UPDATED_AT" \
+            --arg merged_at "$MERGED_AT" \
+            --arg additions "$ADDITIONS" \
+            --arg deletions "$DELETIONS" \
+            --arg changed_files "$CHANGED_FILES" \
+            --arg commits "$COMMITS" \
+            --arg body "$BODY_SHORT" \
+            --argjson color "$COLOR" \
+            '{
+              username: "GitHub PR Bot",
+              avatar_url: "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
+              content: ("**" + $status + "** in `" + $repo + "`"),
+              embeds: [
+                {
+                  title: ("#" + $number + " - " + $title),
+                  url: $pr_url,
+                  color: $color,
+                  author: {
+                    name: ("@" + $author),
+                    icon_url: $avatar,
+                    url: ("https://github.com/" + $author)
+                  },
+                  description: $body,
+                  thumbnail: {
+                    url: $avatar
+                  },
+                  fields: [
+                    {
+                      name: "Repository",
+                      value: ("[" + $repo + "](" + $repo_url + ")"),
+                      inline: true
+                    },
+                    {
+                      name: "Status",
+                      value: $status,
+                      inline: true
+                    },
+                    {
+                      name: "State",
+                      value: $state,
+                      inline: true
+                    },
+                    {
+                      name: "Branches",
+                      value: ("`" + $head + "` → `" + $base + "`"),
+                      inline: false
+                    },
+                    {
+                      name: "Draft",
+                      value: $draft,
+                      inline: true
+                    },
+                    {
+                      name: "Merged",
+                      value: $merged,
+                      inline: true
+                    },
+                    {
+                      name: "Commits",
+                      value: $commits,
+                      inline: true
+                    },
+                    {
+                      name: "Files changed",
+                      value: $changed_files,
+                      inline: true
+                    },
+                    {
+                      name: "Additions",
+                      value: ("+" + $additions),
+                      inline: true
+                    },
+                    {
+                      name: "Deletions",
+                      value: ("-" + $deletions),
+                      inline: true
+                    },
+                    {
+                      name: "Labels",
+                      value: $labels,
+                      inline: false
+                    },
+                    {
+                      name: "Reviewers",
+                      value: $reviewers,
+                      inline: false
+                    },
+                    {
+                      name: "Created",
+                      value: $created,
+                      inline: true
+                    },
+                    {
+                      name: "Updated",
+                      value: $updated,
+                      inline: true
+                    },
+                    {
+                      name: "Merged at",
+                      value: (if $merged_at == "" then "Not merged" else $merged_at end),
+                      inline: true
+                    }
+                  ],
+                  image: {
+                    url: $avatar
+                  },
+                  footer: {
+                    text: "GitHub Actions · Pull Request Notification"
+                  }
+                }
+              ]
+            }' > payload.json
+
+          curl -X POST \
+            -H "Content-Type: application/json" \
+            -d @payload.json \
+            "$DISCORD_WEBHOOK_URL"
