@@ -1,0 +1,4 @@
+group,n,mean_peak_gray,mean_hist_entropy_proxy
+high_contrast,61,0,5.489516238846267
+low_contrast,59,124,5.218037949185799
+medium_contrast,59,1,5.313419398940114

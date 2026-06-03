@@ -1,0 +1,4 @@
+group,n,mean_peak_gray,mean_hist_entropy_proxy
+high_entropy,61,13,5.500080422028871
+low_entropy,59,1,5.25292784257722
+medium_entropy,59,13,5.3630165786416315
