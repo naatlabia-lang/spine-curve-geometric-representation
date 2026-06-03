@@ -1,0 +1,10 @@
+| dominant_noise_per_image_label   |   count |
+|:---------------------------------|--------:|
+| Brownian / fractal-like spectrum |      35 |
+| Impulse / salt-pepper            |      27 |
+| Quantization / banding           |      26 |
+| Poisson / photon-like            |      25 |
+| Periodic frequency peaks         |      23 |
+| Speckle / multiplicative texture |      21 |
+| Gaussian / white-like residual   |      17 |
+| Structured / line artifacts      |       5 |

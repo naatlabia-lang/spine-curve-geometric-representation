@@ -1,0 +1,10 @@
+| experiment_id   | input_channels                                     | purpose                                | expected_use                            |
+|:----------------|:---------------------------------------------------|:---------------------------------------|:----------------------------------------|
+| A0              | robust_normalized_image                            | Baseline input                         | Reference for all comparisons           |
+| A1              | robust_normalized_image + scharr_gradient          | Test structural edge channel           | Weak-edge cases                         |
+| A2              | robust_normalized_image + CLAHE_image              | Test contrast enhancement              | Low-contrast cases                      |
+| A3              | robust_normalized_image + median_filtered_image    | Test impulse noise robustness          | High salt-pepper z-score cases          |
+| A4              | robust_normalized_image + bilateral_denoised_image | Test high-frequency denoising          | High residual / texture cases           |
+| A5              | robust_normalized_image + FFT_notch_filtered_image | Test periodic pattern handling         | High periodic z-score cases             |
+| A6              | robust_normalized_image + ROI_or_band_channel      | Suppress background and line artifacts | Structured-line cases                   |
+| A7              | adaptive_policy_output                             | Audit-guided adaptive channel          | Compare against fixed-channel baselines |

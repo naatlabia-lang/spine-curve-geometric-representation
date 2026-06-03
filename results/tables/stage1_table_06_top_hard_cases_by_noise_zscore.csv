@@ -1,0 +1,31 @@
+patient_id,cobb_angle_deg,dominant_noise_per_image_label,dominant_noise_per_image_score_z,noise_global_score,noise_cluster_id,rx_path
+45,54.78881206342314,Structured / line artifacts,8.471213485260943,0.4705023803827453,2,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_45.jpg
+100,85.64863394137174,Structured / line artifacts,7.054860935700359,0.4017251871912794,2,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_100.jpg
+97,79.79694259931145,Quantization / banding,4.611740606177198,0.4773869633097503,0,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_97.jpg
+205,57.84066581169984,Impulse / salt-pepper,4.153317898235968,0.3440074901956185,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_205.jpg
+32,89.99999999997758,Poisson / photon-like,3.6950753462634007,0.3834349623613131,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_32.JPG
+163,47.73737521062463,Impulse / salt-pepper,3.669907628193954,0.3661670378206351,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_163.jpg
+58,89.99999999997273,Structured / line artifacts,3.5733607696885556,0.3476667941588036,0,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_58.jpg
+31,76.235298981641,Impulse / salt-pepper,3.5082602148139053,0.289624377768933,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_31.jpg
+46,15.461724920827017,Quantization / banding,3.3283253117652625,0.4108570031795251,0,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_46.jpg
+28,49.540124325969416,Impulse / salt-pepper,3.0902132674505327,0.2992784606278667,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_28.jpg
+203,46.998859090594,Impulse / salt-pepper,2.994256752550867,0.3123167833023045,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_203.jpg
+146,79.92563132664003,Periodic frequency peaks,2.895620019334946,0.4398845558471257,3,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_146.jpg
+61,31.08912382465414,Structured / line artifacts,2.8514765077383073,0.3743797180345171,0,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_61.jpg
+95,53.50073440344662,Periodic frequency peaks,2.808798181804853,0.4659919281479506,3,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_95.jpg
+43,31.335607687711693,Quantization / banding,2.753001214270257,0.4312177436931318,0,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_43.jpg
+187,41.13108069692542,Speckle / multiplicative texture,2.6804063525866635,0.3688419198004818,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_187.jpg
+139,58.06037992559875,Periodic frequency peaks,2.675511915189832,0.4557080908835662,3,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_139.jpg
+67,69.77860810144647,Impulse / salt-pepper,2.6370835690303744,0.3283183901350004,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_67.jpg
+204,37.222201776243466,Quantization / banding,2.6202341148483326,0.3980238509835537,0,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_204.jpg
+181,89.9999999999719,Gaussian / white-like residual,2.597858024449469,0.3602483809545761,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_181.jpg
+57,57.84327693547715,Impulse / salt-pepper,2.573984424851199,0.3092673844932652,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_57.jpg
+94,34.698668607164606,Periodic frequency peaks,2.4869004398129926,0.4419211236497944,3,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_94.jpg
+68,42.10521895934952,Poisson / photon-like,2.4670194506688614,0.3654215017823027,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_68.jpg
+35,65.27013975579226,Quantization / banding,2.4432113156191,0.4275174727945703,0,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_35.jpg
+52,86.81535956397106,Quantization / banding,2.4432113156191,0.4121429463243253,0,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_52.jpg
+180,65.61761121115656,Impulse / salt-pepper,2.398968683798496,0.2564724574678388,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_180.jpg
+49,71.8275968400491,Impulse / salt-pepper,2.375174515168871,0.3875397837564998,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_49.jpg
+141,81.58363947604465,Periodic frequency peaks,2.3729808353531583,0.4682598247770086,3,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_141.jpg
+39,27.8256604159896,Quantization / banding,2.3104442161971757,0.4122503608064113,0,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_39.jpg
+56,33.44619228460793,Speckle / multiplicative texture,2.2874009350682276,0.3423434576553203,1,/content/spine-curve-geometric-representation/MaIA_Scoliosis_Dataset/Scoliosis/S_56.jpg

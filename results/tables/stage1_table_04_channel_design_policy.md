@@ -1,0 +1,11 @@
+| detected_condition                        | evidence_metrics                                         | candidate_channel_or_filter                         | risk                                                |
+|:------------------------------------------|:---------------------------------------------------------|:----------------------------------------------------|:----------------------------------------------------|
+| Low photometric contrast                  | std_intensity low; dynamic_range_p99_p1 low; entropy low | Robust normalization / CLAHE channel                | Over-enhancement may amplify noise                  |
+| Weak structural edges                     | laplacian_var low; tenengrad low; scharr_mean low        | Scharr or Sobel gradient channel                    | May emphasize ribs or non-spine edges               |
+| High-frequency residual                   | hf_residual_std high; high_frequency_energy_ratio high   | Bilateral/NLM denoised channel + gradient channel   | May suppress subtle vertebral boundaries            |
+| Impulse / salt-pepper pattern             | noise_salt_pepper_score high                             | Median-filtered channel                             | May remove thin structures if too aggressive        |
+| Poisson / photon-like pattern             | noise_poisson_score high                                 | Variance stabilization / Anscombe-like transform    | Needs careful normalization                         |
+| Periodic frequency peaks                  | noise_periodic_score high                                | FFT notch-filtered channel                          | May remove anatomical periodic texture              |
+| Structured-line artifacts                 | noise_structured_line_score high                         | Line suppression / ROI or anatomical band channel   | May remove useful line-like anatomy if poorly tuned |
+| Quantization / banding                    | noise_quantization_score high                            | Mild smoothing / avoid aggressive CLAHE             | Contrast expansion may worsen banding               |
+| Brownian / fractal-like spectral behavior | noise_brownian_fractal_score high                        | Low-frequency correction / band-pass representation | May remove anatomical shading cues                  |
